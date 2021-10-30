@@ -1217,7 +1217,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
   private void onNoteSwipedPerformAction(Note note) {
     getSelectedNotes().add(note);
-
+//근우 수정해라 발바닥대구...kim20211030
     // Depending on settings and note status this action will...
     // ...restore
     if (Navigation.checkNavigation(Navigation.TRASH)) {
@@ -1233,7 +1233,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
         trashNotes(true);
         // ...archive
       } else {
-        archiveNotes(true);
+        trashNotes(true);
       }
     }
   }

@@ -555,6 +555,8 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
       detailTitle.setEnabled(false);
       detailContent.setEnabled(false);
     }
+    detailTitle.setLinksClickable(true);
+    detailContent.setLinksClickable(true);
 
     initViewTitle();
 

@@ -17,7 +17,7 @@
 
 <resources>
 
-  <string name="app_name">RememberMe</string>
+  <string name="app_name">리멤버미</string>
   <string name="app_package">it.feio.android.rememberme.alpha</string>
   <string name="version_postfix">.ALPHA</string>
 

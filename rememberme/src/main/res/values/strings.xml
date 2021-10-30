@@ -72,7 +72,7 @@
   <string name="sort">Sort</string>
   <string name="select_sorting_column">Sort by</string>
   <string name="tap_to_undo">Tap to undo</string>
-  <string name="alarm_set_on">Reminder set for</string>
+  <string name="alarm_set_on">마감 기한</string>
   <string name="starting_from">starting from</string>
   <string name="at_time">at</string>
   <string name="discard_changes">Discard changes</string>
@@ -87,7 +87,7 @@
   <string name="pushbullet">Pushbullet</string>
   <string name="remove_location">Remove location?</string>
   <string name="remove_reminder">Remove reminder?</string>
-  <string name="add_reminder">Add reminder</string>
+  <string name="add_reminder">기한 설정</string>
   <string name="location_not_found">Location not found</string>
   <string name="record">Record</string>
   <string name="stop">Stop</string>
