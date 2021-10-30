@@ -33,11 +33,11 @@
       android:layout_height="@dimen/navigation_drawer_image_height">
 
       <ImageView
-        android:id="@+id/navdrawer_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/material_wall"
-        android:scaleType="centerCrop" />
+          android:id="@+id/navdrawer_image"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:scaleType="centerCrop"
+          android:src="@drawable/material_wall" />
 
       <com.neopixl.pixlui.components.textview.TextView
         android:id="@+id/navdrawer_title"

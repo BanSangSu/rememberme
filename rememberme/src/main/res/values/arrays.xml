@@ -56,10 +56,10 @@
   </string-array>
 
   <string-array name="sortable_columns_human_readable">
-    <item>Title</item>
-    <item>Creation date</item>
-    <item>Last modification date</item>
-    <item>Reminder date</item>
+    <item>제목</item>
+    <item>실시일</item>
+    <item>수정 날짜</item>
+    <item>마감 기한</item>
   </string-array>
 
   <string-array name="checked_items_behavior">

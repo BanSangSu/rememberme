@@ -46,18 +46,18 @@
     android:paddingEnd="@dimen/intro_side_padding" />
 
   <ImageView
-    android:id="@+id/intro_image_small"
-    android:layout_width="450dp"
-    android:layout_height="0dp"
-    android:layout_weight="5"
-    android:layout_gravity="center"
-    android:paddingTop="@dimen/intro_side_padding"
-    android:paddingBottom="@dimen/intro_side_padding"
-    android:paddingLeft="@dimen/intro_side_padding"
-    android:paddingStart="@dimen/intro_side_padding"
-    android:paddingRight="@dimen/intro_side_padding"
-    android:paddingEnd="@dimen/intro_side_padding"
-    android:visibility="gone" />
+      android:id="@+id/intro_image_small"
+      android:layout_width="450dp"
+      android:layout_height="0dp"
+      android:layout_gravity="center"
+      android:layout_weight="5"
+      android:paddingStart="@dimen/intro_side_padding"
+      android:paddingLeft="@dimen/intro_side_padding"
+      android:paddingTop="@dimen/intro_side_padding"
+      android:paddingEnd="@dimen/intro_side_padding"
+      android:paddingRight="@dimen/intro_side_padding"
+      android:paddingBottom="@dimen/intro_side_padding"
+      android:visibility="gone" />
 
   <TextView
     android:id="@+id/intro_description"

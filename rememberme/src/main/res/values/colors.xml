@@ -17,8 +17,8 @@
 <resources>
 
   <!-- Material -->
-  <color name="colorPrimary">#3F51B5</color>
-  <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorPrimary">#5d4037</color>
+  <color name="colorPrimaryDark">#6d4037</color>
   <color name="colorAccent">#F44336</color>
   <color name="colorAccentPressed">#D32F2F</color>
   <color name="materialGrey100">#F5F5F5</color>
@@ -39,8 +39,8 @@
   <color name="gray_bg">#e2e2e2</color>
   <color name="list_bg">#eeffffff</color>
   <color name="kitkat_gray_light">#19000000</color>
-  <color name="list_bg_pressed">#88336699</color>
-  <color name="list_bg_selected">#4e3f51b5</color>
+  <color name="list_bg_pressed">#916E02</color>
+  <color name="list_bg_selected">#916E02</color>
   <color name="list_note_title">#cc000000</color>
   <color name="list_note_dates">#aa000000</color>
   <color name="about_bg">#dd222222</color>
@@ -48,17 +48,17 @@
   <color name="drawer_line">#ee222222</color>
   <color name="text_gray">#2d2d2d</color>
   <color name="location_text">@color/text_color_lighter</color>
-  <color name="selected">#8833B5E5</color>
+  <color name="selected">#916E02</color>
   <color name="transparent">#00ffffff</color>
   <color name="audio_attachment_text">#aa000000</color>
   <color name="text_color">#b9000000</color>
   <color name="text_color_lighter">#9b000000</color>
 
   <!-- toasts -->
-  <color name="confirm">#303F9F</color>
+  <color name="confirm">#916E02</color>
   <color name="warning">#ff9800</color>
   <color name="alert">#e51c23</color>
-  <color name="info">#ee33B5E5</color>
+  <color name="info">#916E02</color>
   <color name="black_overlay">#33000000</color>
 
   <!--Undo bar-->
