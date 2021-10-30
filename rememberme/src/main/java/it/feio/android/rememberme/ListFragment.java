@@ -242,16 +242,8 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     fab.setOnFabItemClickedListener(id -> {
       View v = mainActivity.findViewById(id);
       switch (id) {
-        case R.id.fab_camera:
-          Intent i = mainActivity.getIntent();
-          i.setAction(ConstantsBase.ACTION_FAB_TAKE_PHOTO);
-          mainActivity.setIntent(i);
-          editNote(new Note(), v);
-          break;
-        case R.id.fab_checklist:
-          Note note = new Note();
-          note.setChecklist(true);
-          editNote(note, v);
+        case R.id.fab_STT:
+          //STT(note, v);
           break;
         default:
           editNote(new Note(), v);

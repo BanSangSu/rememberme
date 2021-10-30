@@ -38,8 +38,8 @@ public class Navigation {
   public static final int NOTES = 0;
   public static final int ARCHIVE = 1;
   public static final int REMINDERS = 2;
-  public static final int TRASH = 3;
-  public static final int UNCATEGORIZED = 4;
+  public static final int UNCATEGORIZED = 3;
+  public static final int TRASH = 4;
   public static final int CATEGORY = 5;
 
 

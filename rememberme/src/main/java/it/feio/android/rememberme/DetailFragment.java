@@ -544,6 +544,18 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
     // Color of tag marker if note is tagged a function is active in preferences
     setTagMarkerColor(noteTmp.getCategory());
 
+//    Ban text fixed
+    EditText detailTitle = binding.detailRoot.findViewById(R.id.detail_title);
+    EditText detailContent = binding.detailRoot.findViewById(R.id.detail_content);
+
+    if(noteTmp.getTitle().equals("")) {
+      detailTitle.setEnabled(true);
+      detailContent.setEnabled(true);
+    }else{
+      detailTitle.setEnabled(false);
+      detailContent.setEnabled(false);
+    }
+
     initViewTitle();
 
     initViewContent();
@@ -794,6 +806,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
   }
 
   private void initViewTitle() {
+
     binding.detailTitle.setText(noteTmp.getTitle());
     binding.detailTitle.gatherLinksForText();
     binding.detailTitle.setOnTextLinkClickListener(textLinkClickListener);
@@ -809,6 +822,9 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
           .setSelection(binding.fragmentDetailContent.detailContent.getText().length());
       return false;
     });
+
+
+
     requestFocus(binding.detailTitle);
   }
 
@@ -997,6 +1013,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
         }
       }
     }
+
 
     return true;
   }
@@ -1586,6 +1603,8 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
       // Due to checklist library introduction the returned EditText class is no more a
       // com.neopixl.pixlui.components.edittext.EditText but a standard android.widget.EditText
       View contentView = binding.detailRoot.findViewById(R.id.detail_content);
+
+
       if (contentView instanceof EditText) {
         contentText = ((EditText) contentView).getText().toString();
       } else if (contentView instanceof android.widget.EditText) {

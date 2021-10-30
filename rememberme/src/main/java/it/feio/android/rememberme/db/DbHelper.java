@@ -331,10 +331,10 @@ public class DbHelper extends SQLiteOpenHelper {
           return getNotesArchived();
         case Navigation.REMINDERS:
           return getNotesWithReminder(Prefs.getBoolean(ConstantsBase.PREF_FILTER_PAST_REMINDERS, false));
-        case Navigation.TRASH:
-          return getNotesTrashed();
         case Navigation.UNCATEGORIZED:
           return getNotesUncategorized();
+        case Navigation.TRASH:
+          return getNotesTrashed();
         case Navigation.CATEGORY:
           return getNotesByCategory(Navigation.getCategory());
         default:

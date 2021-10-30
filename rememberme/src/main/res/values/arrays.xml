@@ -17,19 +17,19 @@
 <resources>
 
   <string-array name="navigation_list">
-    <item>Notes</item>
-    <item>Archive</item>
-    <item>Reminders</item>
-    <item>Trash</item>
-    <item>Uncategorized</item>
+    <item>지체장애인</item>
+    <item>청각장애인</item>
+    <item>한부모가정</item>
+    <item>다문화가정</item>
+    <item>휴지통</item>
   </string-array>
 
   <string-array name="navigation_list_codes">
-    <item>Notes</item>
-    <item>Archive</item>
-    <item>Reminders</item>
-    <item>Trash</item>
-    <item>Uncategorized</item>
+    <item>지체장애인</item>
+    <item>청각장애인</item>
+    <item>한부모가정</item>
+    <item>다문화가정</item>
+    <item>휴지통</item>
   </string-array>
 
   <integer-array name="navigation_list_icons">

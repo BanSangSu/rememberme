@@ -89,8 +89,8 @@ public class Fab {
           }
         });
 
-    floatingActionsMenu.findViewById(R.id.fab_checklist).setOnClickListener(onClickListener);
-    floatingActionsMenu.findViewById(R.id.fab_camera).setOnClickListener(onClickListener);
+    // ban
+    floatingActionsMenu.findViewById(R.id.fab_STT).setOnClickListener(onClickListener);
 
     if (!expandOnLongClick) {
       View noteBtn = floatingActionsMenu.findViewById(R.id.fab_note);
