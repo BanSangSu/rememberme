@@ -106,12 +106,12 @@ public class MainMenuTask extends AsyncTask<Void, Void, List<NavigationItem>> {
 
     final List<NavigationItem> items = new ArrayList<>();
     for (int i = 0; i < mNavigationArray.length; i++) {
-      if (!checkSkippableItem(i)) {
+      //if (!checkSkippableItem(i)) { // 2021.10.30 Sangsu modify
         NavigationItem item = new NavigationItem(i, mNavigationArray[i],
             mNavigationIconsArray.getResourceId(i,
                 0), mNavigationIconsSelectedArray.getResourceId(i, 0));
         items.add(item);
-      }
+      //} // 2021.10.30 Sangsu modify
     }
     return items;
   }

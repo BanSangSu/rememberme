@@ -38,7 +38,7 @@ import com.pixplicity.easyprefs.library.Prefs;
 import de.greenrobot.event.EventBus;
 import it.feio.android.rememberme.async.bus.CategoriesUpdatedEvent;
 import it.feio.android.rememberme.async.bus.NotesUpdatedEvent;
-import it.feio.android.omninotes.db.DbHelper;
+import it.feio.android.rememberme.db.DbHelper;
 import it.feio.android.rememberme.exceptions.TestException;
 import it.feio.android.rememberme.models.Attachment;
 import it.feio.android.rememberme.models.Category;

@@ -26,37 +26,37 @@
       android:layout_width="wrap_content"
       android:key="settings_data"
       android:title="@string/settings_screen_data"
-      app:fragment="it.feio.android.omninotes.SettingsFragment"
+      app:fragment="it.feio.android.rememberme.SettingsFragment"
       app:iconSpaceReserved="false" />
 
     <PreferenceScreen
       android:key="settings_interface"
       android:title="@string/settings_screen_interface"
-      app:fragment="it.feio.android.omninotes.SettingsFragment"
+      app:fragment="it.feio.android.rememberme.SettingsFragment"
       app:iconSpaceReserved="false" />
 
     <PreferenceScreen
       android:key="settings_navigation"
       android:title="@string/settings_screen_navigation"
-      app:fragment="it.feio.android.omninotes.SettingsFragment"
+      app:fragment="it.feio.android.rememberme.SettingsFragment"
       app:iconSpaceReserved="false" />
 
     <PreferenceScreen
       android:key="settings_behaviors"
       android:title="@string/settings_screen_behaviors"
-      app:fragment="it.feio.android.omninotes.SettingsFragment"
+      app:fragment="it.feio.android.rememberme.SettingsFragment"
       app:iconSpaceReserved="false" />
 
     <PreferenceScreen
       android:key="settings_notifications"
       android:title="@string/settings_screen_notifications"
-      app:fragment="it.feio.android.omninotes.SettingsFragment"
+      app:fragment="it.feio.android.rememberme.SettingsFragment"
       app:iconSpaceReserved="false" />
 
     <PreferenceScreen
       android:key="settings_privacy"
       android:title="@string/settings_screen_privacy"
-      app:fragment="it.feio.android.omninotes.SettingsFragment"
+      app:fragment="it.feio.android.rememberme.SettingsFragment"
       app:iconSpaceReserved="false" />
 
   </PreferenceCategory>
@@ -112,7 +112,7 @@
       android:title="@string/settings_statistics"
       app:iconSpaceReserved="false">
       <intent
-        android:targetClass="it.feio.android.omninotes.StatsActivity"
+        android:targetClass="it.feio.android.rememberme.StatsActivity"
         android:targetPackage="@string/app_package" />
     </Preference>
 
@@ -120,7 +120,7 @@
       android:title="@string/settings_about"
       app:iconSpaceReserved="false">
       <intent
-        android:targetClass="it.feio.android.omninotes.AboutActivity"
+        android:targetClass="it.feio.android.rememberme.AboutActivity"
         android:targetPackage="@string/app_package" />
     </Preference>
 
