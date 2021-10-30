@@ -412,6 +412,7 @@ public class MainActivity extends BaseActivity implements
     Note note = new Note();
     note.setTitle(i.getStringExtra(Intent.EXTRA_SUBJECT));
     note.setContent(i.getStringExtra(Intent.EXTRA_TEXT));
+    // 디비가기전
     DbHelper.getInstance().updateNote(note, true);
     showToast(getString(R.string.note_updated), Toast.LENGTH_SHORT);
     finish();

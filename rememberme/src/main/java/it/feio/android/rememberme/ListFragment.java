@@ -104,15 +104,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
+import android.widget.Toast;
+
 
 public class ListFragment extends BaseFragment implements OnViewTouchedListener,
         UndoBarController.UndoListener {
+  // Ban stt
+
 
   private static final int REQUEST_CODE_CATEGORY = 1;
   private static final int REQUEST_CODE_CATEGORY_NOTES = 2;
@@ -166,6 +174,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     setHasOptionsMenu(true);
     setRetainInstance(true);
     EventBus.getDefault().register(this, 1);
+
   }
 
 
@@ -222,6 +231,8 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       mainActivity.navigationTmp = savedInstanceState.getString("navigationTmp");
     }
     init();
+
+
   }
 
 
@@ -243,12 +254,16 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       View v = mainActivity.findViewById(id);
       switch (id) {
         case R.id.fab_STT:
-          //STT(note, v);
+          stt();
           break;
         default:
           editNote(new Note(), v);
       }
     });
+  }
+  private void stt(){
+    mainActivity.showToast("??", Toast.LENGTH_SHORT);
+
   }
 
 
@@ -598,7 +613,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       menu.findItem(R.id.menu_add_reminder).setVisible(true);
       menu.findItem(R.id.menu_category).setVisible(true);
       menu.findItem(R.id.menu_uncomplete_checklists).setVisible(false);
-      menu.findItem(R.id.menu_tags).setVisible(true);
+      menu.findItem(R.id.menu_tags).setVisible(false);
       menu.findItem(R.id.menu_trash).setVisible(true);
     }
     menu.findItem(R.id.menu_select_all).setVisible(true);
@@ -733,26 +748,26 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       fab.hideFab();
     }
     menu.findItem(R.id.menu_search).setVisible(!drawerOpen);
-    menu.findItem(R.id.menu_filter)
-        .setVisible(!drawerOpen && !filterPastReminders && navigationReminders &&
-            !searchViewHasFocus);
-    menu.findItem(R.id.menu_filter_remove)
-        .setVisible(!drawerOpen && filterPastReminders && navigationReminders
-            && !searchViewHasFocus);
-    menu.findItem(R.id.menu_filter_category).setVisible(!drawerOpen && !filterArchivedInCategory &&
-        navigationCategory && !searchViewHasFocus);
-    menu.findItem(R.id.menu_filter_category_remove)
-        .setVisible(!drawerOpen && filterArchivedInCategory &&
-            navigationCategory && !searchViewHasFocus);
+//    menu.findItem(R.id.menu_filter)
+//        .setVisible(!drawerOpen && !filterPastReminders && navigationReminders &&
+//            !searchViewHasFocus);
+//    menu.findItem(R.id.menu_filter_remove)
+//        .setVisible(!drawerOpen && filterPastReminders && navigationReminders
+//            && !searchViewHasFocus);
+//    menu.findItem(R.id.menu_filter_category).setVisible(!drawerOpen && !filterArchivedInCategory &&
+//        navigationCategory && !searchViewHasFocus);
+//    menu.findItem(R.id.menu_filter_category_remove)
+//        .setVisible(!drawerOpen && filterArchivedInCategory &&
+//            navigationCategory && !searchViewHasFocus);
     menu.findItem(R.id.menu_sort)
-        .setVisible(!drawerOpen && !navigationReminders && !searchViewHasFocus);
+        .setVisible(!drawerOpen && !searchViewHasFocus);
     menu.findItem(R.id.menu_expanded_view)
         .setVisible(!drawerOpen && !expandedView && !searchViewHasFocus);
     menu.findItem(R.id.menu_contracted_view)
         .setVisible(!drawerOpen && expandedView && !searchViewHasFocus);
     menu.findItem(R.id.menu_empty_trash).setVisible(!drawerOpen && navigationTrash);
     menu.findItem(R.id.menu_uncomplete_checklists).setVisible(searchViewHasFocus);
-    menu.findItem(R.id.menu_tags).setVisible(searchViewHasFocus);
+    menu.findItem(R.id.menu_tags).setVisible(false);
   }
 
 
@@ -1416,7 +1431,6 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     // Creation of undo bar
     if (archive) {
       ubc.showUndoBar(false, selectedNotesSize + " " + getString(R.string.archived), null);
-      fab.hideFab();
       undoArchive = true;
     } else {
       getSelectedNotes().clear();
@@ -1523,7 +1537,6 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     // Creation of undo bar
     if (category == null) {
       ubc.showUndoBar(false, getString(R.string.notes_category_removed), null);
-      fab.hideFab();
       undoCategorize = true;
       undoCategorizeCategory = null;
     } else {
@@ -1829,9 +1842,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     isAllowed = isAllowed && (getActionMode() == null || actionModeFinishing);
     // Navigation check
     int navigation = Navigation.getNavigation();
-    isAllowed = isAllowed && navigation != Navigation.ARCHIVE && navigation != Navigation.REMINDERS
-        && navigation
-        != Navigation.TRASH;
+    isAllowed = isAllowed && navigation != Navigation.TRASH;
     // Navigation drawer check
     isAllowed =
         isAllowed && mainActivity.getDrawerLayout() != null && !mainActivity.getDrawerLayout()

@@ -106,12 +106,12 @@ public class MainMenuTask extends AsyncTask<Void, Void, List<NavigationItem>> {
 
     final List<NavigationItem> items = new ArrayList<>();
     for (int i = 0; i < mNavigationArray.length; i++) {
-      //if (!checkSkippableItem(i)) { // 2021.10.30 Sangsu modify
+      if (!checkSkippableItem(i)) { // 2021.10.30 Sangsu modify
         NavigationItem item = new NavigationItem(i, mNavigationArray[i],
             mNavigationIconsArray.getResourceId(i,
                 0), mNavigationIconsSelectedArray.getResourceId(i, 0));
         items.add(item);
-      //} // 2021.10.30 Sangsu modify
+      } // 2021.10.30 Sangsu modify
     }
     return items;
   }
@@ -124,23 +124,23 @@ public class MainMenuTask extends AsyncTask<Void, Void, List<NavigationItem>> {
       dynamicNavigationLookupTable = DynamicNavigationLookupTable.getInstance();
     }
     switch (i) {
-      case Navigation.REMINDERS:
-        if (dynamicMenu && dynamicNavigationLookupTable.getReminders() == 0) {
-          skippable = true;
-        }
-        break;
-      case Navigation.UNCATEGORIZED:
-        boolean showUncategorized = Prefs.getBoolean(ConstantsBase.PREF_SHOW_UNCATEGORIZED, false);
-        if (!showUncategorized || (dynamicMenu
-            && dynamicNavigationLookupTable.getUncategorized() == 0)) {
-          skippable = true;
-        }
-        break;
-      case Navigation.ARCHIVE:
-        if (dynamicMenu && dynamicNavigationLookupTable.getArchived() == 0) {
-          skippable = true;
-        }
-        break;
+//      case Navigation.REMINDERS:
+//        if (dynamicMenu && dynamicNavigationLookupTable.getReminders() == 0) {
+//          skippable = true;
+//        }
+//        break;
+//      case Navigation.UNCATEGORIZED:
+//        boolean showUncategorized = Prefs.getBoolean(ConstantsBase.PREF_SHOW_UNCATEGORIZED, false);
+//        if (!showUncategorized || (dynamicMenu
+//            && dynamicNavigationLookupTable.getUncategorized() == 0)) {
+//          skippable = true;
+//        }
+//        break;
+//      case Navigation.ARCHIVE:
+//        if (dynamicMenu && dynamicNavigationLookupTable.getArchived() == 0) {
+//          skippable = true;
+//        }
+//        break;
       case Navigation.TRASH:
         if (dynamicMenu && dynamicNavigationLookupTable.getTrashed() == 0) {
           skippable = true;
