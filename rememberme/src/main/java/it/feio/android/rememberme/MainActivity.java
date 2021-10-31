@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -64,6 +65,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
+
 public class MainActivity extends BaseActivity implements
     SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -78,6 +83,9 @@ public class MainActivity extends BaseActivity implements
   private FragmentManager mFragmentManager;
 
   ActivityMainBinding binding;
+
+  String superTitle = "";
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +104,7 @@ public class MainActivity extends BaseActivity implements
     if (IntroActivity.mustRun()) {
       startActivity(new Intent(getApplicationContext(), IntroActivity.class));
     }
+
 
   }
 
@@ -413,8 +422,10 @@ public class MainActivity extends BaseActivity implements
     note.setTitle(i.getStringExtra(Intent.EXTRA_SUBJECT));
     note.setContent(i.getStringExtra(Intent.EXTRA_TEXT));
     // 디비가기전
+    note.setAddress(i.getStringExtra(Intent.EXTRA_UID));
+
     DbHelper.getInstance().updateNote(note, true);
-    showToast(getString(R.string.note_updated), Toast.LENGTH_SHORT);
+    //showToast(getString(R.string.note_updated), Toast.LENGTH_SHORT);
     finish();
   }
 

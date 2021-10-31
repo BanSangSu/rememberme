@@ -17,6 +17,7 @@
 
 package it.feio.android.rememberme.async.notes;
 
+import it.feio.android.rememberme.MainActivity;
 import it.feio.android.rememberme.db.DbHelper;
 import it.feio.android.rememberme.models.Category;
 import it.feio.android.rememberme.models.Note;
@@ -25,7 +26,6 @@ import java.util.List;
 
 
 public class NoteProcessorCategorize extends NoteProcessor {
-
   Category category;
 
 

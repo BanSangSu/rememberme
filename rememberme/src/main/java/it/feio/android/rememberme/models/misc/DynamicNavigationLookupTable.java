@@ -58,9 +58,9 @@ public class DynamicNavigationLookupTable {
       for (int i = 0; i < notes.size(); i++) {
         if (notes.get(i).isTrashed()) {
           trashed++;
-        } else if (notes.get(i).isArchived()) {
+        } else if (notes.get(i).getAddress() == "청각장애인") {
           archived++;
-        } else if (notes.get(i).getAlarm() != null) {
+        } else if (notes.get(i).getAddress() == "한부모가정") {
           reminders++;
         }
         if (notes.get(i).getCategory() == null || notes.get(i).getCategory().getId().equals(0L)) {

@@ -111,9 +111,6 @@ import java.util.TreeMap;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 
-import android.speech.RecognitionListener;
-import android.speech.RecognizerIntent;
-import android.speech.SpeechRecognizer;
 import android.widget.Toast;
 
 
@@ -121,7 +118,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
         UndoBarController.UndoListener {
   // Ban stt
 
-
+  String title;
   private static final int REQUEST_CODE_CATEGORY = 1;
   private static final int REQUEST_CODE_CATEGORY_NOTES = 2;
   private static final int REQUEST_CODE_ADD_ALARMS = 3;
@@ -174,6 +171,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     setHasOptionsMenu(true);
     setRetainInstance(true);
     EventBus.getDefault().register(this, 1);
+
 
   }
 
@@ -252,17 +250,22 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
         Prefs.getBoolean(ConstantsBase.PREF_FAB_EXPANSION_BEHAVIOR, false));
     fab.setOnFabItemClickedListener(id -> {
       View v = mainActivity.findViewById(id);
+
+      // set superTitle
+      mainActivity.superTitle = mainActivity.navigation;
+
       switch (id) {
         case R.id.fab_STT:
           stt();
           break;
         default:
-          editNote(new Note(), v);
+          mainActivity.showToast("관리자 권한이 필요합니다.", Toast.LENGTH_SHORT);
+//          editNote(new Note(), v);
       }
     });
   }
   private void stt(){
-    mainActivity.showToast("??", Toast.LENGTH_SHORT);
+    mainActivity.showToast("준비중입니다. \n상단 검색버튼의 음성기능을 이용해주세요.", Toast.LENGTH_SHORT);
 
   }
 
@@ -286,7 +289,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
         ? mainActivity.navigationTmp
         : Prefs.getString (ConstantsBase.PREF_NAVIGATION, navigationListCodes[0]);
     int index = Arrays.asList(navigationListCodes).indexOf(navigation);
-    String title;
+
     // If is a traditional navigation item
     if (index >= 0 && index < navigationListCodes.length) {
       title = navigationList[index];
@@ -295,6 +298,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       title = category != null ? category.getName() : "";
     }
     title = title == null ? getString(R.string.title_activity_list) : title;
+
     mainActivity.setActionBarTitle(title);
   }
 
@@ -796,6 +800,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       return;
     }
 
+
     if (actionMode == null) {
       switch (item.getItemId()) {
         case android.R.id.home:
@@ -877,6 +882,20 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 //                    synchronizeSelectedNotes();
 //                    break;
         default:
+          for (Note note : getSelectedNotes()) {
+
+            if(mainActivity.superTitle.equals(note.getAddress())) {
+              listAdapter.replace(note, listAdapter.getPosition(note));
+            }
+            else{
+              listAdapter.remove(note);
+              ReminderHelper.removeReminder(OmniNotes.getAppContext(), note);
+            }
+
+          }
+
+          listAdapter.notifyDataSetChanged();
+          finishActionMode();
           LogDelegate.e("Wrong element choosen: " + item.getItemId());
       }
     }
@@ -1115,6 +1134,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
             .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "getAllNotes", true);
       }
     }
+
   }
 
 
@@ -1386,7 +1406,6 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     mainActivity.showMessage(R.string.note_deleted, ONStyle.ALERT);
   }
 
-
   /**
    * Batch note archiviation
    */
@@ -1422,6 +1441,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
     listAdapter.notifyDataSetChanged();
     finishActionMode();
+
 
     // Advice to user
     int msg = archive ? R.string.note_archived : R.string.note_unarchived;

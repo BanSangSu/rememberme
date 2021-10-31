@@ -59,6 +59,7 @@
       android:textColor="@color/text_color"
       android:imeOptions="actionDone"
       pixlui:typeface="RobotoSlab-Regular.ttf"
+      android:autoLink="all"
       android:textCursorDrawable="@null" />
   </LinearLayout>
 

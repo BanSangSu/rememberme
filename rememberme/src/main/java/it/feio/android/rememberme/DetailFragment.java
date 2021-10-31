@@ -276,6 +276,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
 
     mainActivity = (MainActivity) getActivity();
 
+
     mainActivity.getSupportActionBar().setDisplayShowTitleEnabled(false);
     mainActivity.getToolbar().setNavigationOnClickListener(v -> navigateUp());
 
@@ -501,6 +502,12 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
         noteTmp.setContent(content);
       }
 
+      // Text id(address로)
+      String id =  i.getStringExtra(Intent.EXTRA_UID);
+      if (id != null) {
+        noteTmp.setAddress(id);
+      }
+
       importAttachments(i);
 
     }
@@ -555,8 +562,6 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
       detailTitle.setEnabled(false);
       detailContent.setEnabled(false);
     }
-    detailTitle.setLinksClickable(true);
-    detailContent.setLinksClickable(true);
 
     initViewTitle();
 
@@ -1516,6 +1521,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
     // Changed fields
     noteTmp.setTitle(getNoteTitle());
     noteTmp.setContent(getNoteContent());
+    noteTmp.setAddress(getNoteId());
 
     // Check if some text or attachments of any type have been inserted or is an empty note
     if (goBack && TextUtils.isEmpty(noteTmp.getTitle()) && TextUtils.isEmpty(noteTmp.getContent())
@@ -1541,6 +1547,9 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
         .THREAD_POOL_EXECUTOR, noteTmp);
   }
 
+  private String getNoteId() {
+    return mainActivity.superTitle;
+  }
   /**
    * Checks if nothing is changed to avoid committing if possible (check)
    */
