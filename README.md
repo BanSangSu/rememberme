@@ -13,17 +13,20 @@
 <img src="https://github.com/BanSangSu/rememberme/assets/76412884/e60fe329-5153-4c74-9982-2dcf8d7bc561" 
 alt="menu UI" width="600" />  
 
-3. Show policy information using RecyclerView.  
+2. Show policy information using RecyclerView.  
 <img src="https://github.com/BanSangSu/rememberme/assets/76412884/2c88df0b-2a0d-4abe-9878-f740a901c5d5" 
 alt="policy information using RecyclerView" width="600" />
 
-5. Details can be searched by typing or using voice recognition.  
+3. Details can be searched by typing or using voice recognition.  
 <img src="https://github.com/BanSangSu/rememberme/assets/76412884/460fca82-3e3c-4eca-93ea-6c9dafe143b3" 
 alt="search" width="600"  />
 
-7. Alert a notification push message using Reminder function.  
+4. Alert a notification push message using Reminder function.  
 <img src="https://github.com/BanSangSu/rememberme/assets/76412884/4dce6dd1-37f1-4467-a36d-caa993a1ff81" 
 alt="alert" width="600" />
+
+# Tech Stacks
+- **Android with Java & Kotlin, SQLite, Google API**
 
 # Revenue Model
 1. Outsourcing expenses of advertisement from government.
